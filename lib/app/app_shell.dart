@@ -26,7 +26,7 @@ class _AppShellState extends State<AppShell> {
     NavigationDestination(icon: Icon(Icons.settings_outlined), selectedIcon: Icon(Icons.settings), label: 'Settings'),
   ];
 
-  static const _phoneItems = <NavigationDestination>[
+  static final _phoneItems = <NavigationDestination>[
     _items[0],
     _items[1],
     _items[2],
