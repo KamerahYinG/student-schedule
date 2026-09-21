@@ -1,3 +1,5 @@
+import '../core/time/local_date.dart';
+
 enum ProjectStatus { active, done, archived }
 
 enum TaskStatus { todo, doing, waiting, done, cancelled }
@@ -58,7 +60,7 @@ class Task {
   final TaskStatus status;
   final bool isInbox;
   final DueKind dueKind;
-  final DateTime? dueDate;
+  final LocalDate? dueDate;
   final DateTime? dueAt;
   final int? estimateMinutes;
   final double sortOrder;
@@ -136,9 +138,5 @@ class Category {
   final DateTime? deletedAt;
 }
 
-bool isOverdue(Task task, DateTime now) {
-  final due = task.dueKind == DueKind.datetime ? task.dueAt : task.dueDate;
-  return due != null && task.status != TaskStatus.done && task.status != TaskStatus.cancelled && due.isBefore(now);
-}
-
-String? effectiveCategoryId(Task task, Project? project) => task.categoryId ?? project?.categoryId;
+String? effectiveCategoryId(Task task, Project? project) =>
+    task.categoryId ?? project?.categoryId;

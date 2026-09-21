@@ -19,11 +19,26 @@ class _AppShellState extends State<AppShell> {
   AppSection _section = AppSection.week;
 
   static const _items = <NavigationDestination>[
-    NavigationDestination(icon: Icon(Icons.view_week_outlined), selectedIcon: Icon(Icons.view_week), label: 'Week'),
-    NavigationDestination(icon: Icon(Icons.event_note_outlined), selectedIcon: Icon(Icons.event_note), label: 'Deadlines'),
-    NavigationDestination(icon: Icon(Icons.account_tree_outlined), selectedIcon: Icon(Icons.account_tree), label: 'Projects'),
-    NavigationDestination(icon: Icon(Icons.inbox_outlined), selectedIcon: Icon(Icons.inbox), label: 'Inbox'),
-    NavigationDestination(icon: Icon(Icons.settings_outlined), selectedIcon: Icon(Icons.settings), label: 'Settings'),
+    NavigationDestination(
+        icon: Icon(Icons.view_week_outlined),
+        selectedIcon: Icon(Icons.view_week),
+        label: 'Week'),
+    NavigationDestination(
+        icon: Icon(Icons.event_note_outlined),
+        selectedIcon: Icon(Icons.event_note),
+        label: 'Deadlines'),
+    NavigationDestination(
+        icon: Icon(Icons.account_tree_outlined),
+        selectedIcon: Icon(Icons.account_tree),
+        label: 'Projects'),
+    NavigationDestination(
+        icon: Icon(Icons.inbox_outlined),
+        selectedIcon: Icon(Icons.inbox),
+        label: 'Inbox'),
+    NavigationDestination(
+        icon: Icon(Icons.settings_outlined),
+        selectedIcon: Icon(Icons.settings),
+        label: 'Settings'),
   ];
 
   static final _phoneItems = <NavigationDestination>[
@@ -41,7 +56,8 @@ class _AppShellState extends State<AppShell> {
         AppSection.settings => const SettingsPage(),
       };
 
-  void _select(int index) => setState(() => _section = AppSection.values[index]);
+  void _select(int index) =>
+      setState(() => _section = AppSection.values[index]);
 
   @override
   Widget build(BuildContext context) {
@@ -52,13 +68,15 @@ class _AppShellState extends State<AppShell> {
           appBar: isWide
               ? null
               : AppBar(
-                  title: Text(_section.name[0].toUpperCase() + _section.name.substring(1)),
+                  title: Text(_section.name[0].toUpperCase() +
+                      _section.name.substring(1)),
                   actions: [
                     if (_section != AppSection.settings)
                       IconButton(
                         tooltip: 'Settings',
                         icon: const Icon(Icons.settings_outlined),
-                        onPressed: () => setState(() => _section = AppSection.settings),
+                        onPressed: () =>
+                            setState(() => _section = AppSection.settings),
                       ),
                   ],
                 ),
@@ -84,7 +102,8 @@ class _AppShellState extends State<AppShell> {
           bottomNavigationBar: isWide
               ? null
               : NavigationBar(
-                  selectedIndex: _section == AppSection.settings ? 0 : _section.index,
+                  selectedIndex:
+                      _section == AppSection.settings ? 0 : _section.index,
                   onDestinationSelected: _select,
                   destinations: _phoneItems,
                 ),
