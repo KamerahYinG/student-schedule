@@ -96,6 +96,20 @@ class Event {
   final DateTime createdAt;
   final DateTime updatedAt;
   final DateTime? deletedAt;
+
+  Event copyWith({String? categoryId}) => Event(
+        id: id,
+        title: title,
+        notes: notes,
+        projectId: projectId,
+        categoryId: categoryId ?? this.categoryId,
+        startAt: startAt,
+        endAt: endAt,
+        location: location,
+        createdAt: createdAt,
+        updatedAt: updatedAt,
+        deletedAt: deletedAt,
+      );
 }
 
 class TimeBlock {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'app_shell.dart';
 
@@ -7,13 +8,11 @@ class StudentScheduleApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Student Schedule',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
-        useMaterial3: true,
+    return const ProviderScope(
+      child: MaterialApp(
+        title: 'Student Schedule',
+        home: AppShell(),
       ),
-      home: const AppShell(),
     );
   }
 }
